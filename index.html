@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fabian Schürg – Digital Manufacturing Product Leader</title>
+<meta name="description" content="Fabian Schürg – Product & Service Manager for Smart Industry at Bosch. Building digital products for manufacturing: energy management, shop-floor data and plant-wide platforms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f5f2;
+    --surface: #ffffff;
+    --text: #17191c;
+    --muted: #5d636b;
+    --line: #dcdad4;
+    --accent: #c2410c;
+    --accent-soft: #fbe9df;
+    --max: 960px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121417;
+      --surface: #1a1d21;
+      --text: #ecebe8;
+      --muted: #9aa0a8;
+      --line: #2b2f35;
+      --accent: #fb8a4c;
+      --accent-soft: #2a1d16;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 400 17px/1.65 "IBM Plex Sans", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .mono {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Nav */
+  nav { border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  nav .name { font-weight: 600; text-decoration: none; }
+  nav ul { display: flex; gap: 28px; list-style: none; }
+  nav ul a { text-decoration: none; color: var(--muted); font-size: 15px; }
+  nav ul a:hover { color: var(--text); }
+
+  /* Hero */
+  .hero { padding: 96px 0 72px; }
+  .hero .mono { margin-bottom: 20px; }
+  .hero h1 {
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -.02em;
+    max-width: 15ch;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p.lead { margin-top: 28px; font-size: 20px; color: var(--muted); max-width: 58ch; }
+  .cta { margin-top: 40px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 12px 22px; border-radius: 6px;
+    text-decoration: none; font-weight: 500; font-size: 15px;
+    border: 1px solid var(--line); transition: border-color .15s, background .15s;
+  }
+  .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .btn:hover { border-color: var(--text); }
+
+  /* Stats */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .stat { padding: 28px 20px 28px 0; }
+  .stat + .stat { padding-left: 20px; border-left: 1px solid var(--line); }
+  .stat b { display: block; font-size: 34px; font-weight: 600; letter-spacing: -.02em; }
+  .stat span { font-size: 14px; color: var(--muted); }
+
+  /* Sections */
+  section { padding: 88px 0 0; }
+  .sec-head { display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
+  .sec-head h2 { font-size: 28px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
+  .sec-body { max-width: 640px; }
+  .sec-body p + p { margin-top: 16px; }
+
+  /* Focus cards */
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 10px; padding: 24px;
+  }
+  .card .mono { color: var(--accent); margin-bottom: 10px; }
+  .card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .card p { font-size: 15px; color: var(--muted); }
+
+  /* Timeline */
+  .role { padding: 28px 0; border-top: 1px solid var(--line); }
+  .role:last-child { border-bottom: 1px solid var(--line); }
+  .role-top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: baseline; }
+  .role h3 { font-size: 19px; font-weight: 600; }
+  .role .org { color: var(--muted); margin-top: 2px; }
+  .role ul { margin-top: 14px; padding-left: 18px; }
+  .role li { margin-top: 6px; }
+  .role li::marker { color: var(--accent); }
+  .sub { margin-top: 18px; padding-left: 16px; border-left: 2px solid var(--line); }
+  .sub + .sub { margin-top: 14px; }
+  .sub .mono { margin-bottom: 4px; }
+  .sub p { font-size: 15.5px; }
+
+  /* Skills */
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .tags span {
+    font-size: 14px; padding: 5px 12px; border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--line);
+  }
+  .skill-group + .skill-group { margin-top: 28px; }
+
+  /* Contact */
+  .contact {
+    margin: 96px 0 0; padding: 56px; border-radius: 14px;
+    background: var(--accent-soft);
+  }
+  .contact h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; max-width: 20ch; }
+  .contact p { margin-top: 14px; color: var(--muted); max-width: 52ch; }
+
+  footer { padding: 40px 0 56px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 760px) {
+    body { font-size: 16px; }
+    nav ul { display: none; }
+    .hero { padding: 64px 0 48px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(3) { padding-left: 0; border-left: 0; }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .sec-head { grid-template-columns: 1fr; gap: 20px; }
+    .cards { grid-template-columns: 1fr; }
+    section { padding-top: 64px; }
+    .contact { padding: 36px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="name" href="#">Fabian Schürg</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="mono">Product &amp; Service Manager · Smart Industry · Bosch</div>
+    <h1>Digital products that make <em>manufacturing</em> run better.</h1>
+    <p class="lead">I lead IT products for factories – from shop-floor data to global platforms used across dozens of plants. My focus is turning industrial data into decisions on energy, quality and maintenance.</p>
+    <div class="cta">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn" href="#experience">View experience</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><b>70+</b><span>manufacturing sites migrated to one platform</span></div>
+    <div class="stat"><b>12–15</b><span>FTE cross-functional product team</span></div>
+    <div class="stat"><b>&gt;€2M</b><span>annual budget responsibility</span></div>
+    <div class="stat"><b>250+</b><span>users trained in the first rollout wave</span></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="about">
+    <div class="sec-head">
+      <div class="mono">01 / About</div>
+      <div class="sec-body">
+        <h2>Between the shop floor, IT and the business case.</h2>
+        <br>
+        <p>I've spent my career at the intersection of manufacturing, technology and commercial management. At Bosch, I own digital products for the global manufacturing network – currently a global Energy Management System that gives plants transparency on energy consumption from plant level down to individual machines.</p>
+        <p>Before that I worked in procurement and partner management at Porsche, which taught me how to negotiate, structure vendor relationships and keep a business case honest. I hold a Master of Engineering in Smart Factory – Industry 4.0.</p>
+        <p>What I enjoy most: taking a complex, multi-site transformation, finding the simplest product that solves the real problem, and getting people to actually use it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="mono">02 / Focus</div>
+      <div class="cards">
+        <div class="card">
+          <div class="mono">Energy</div>
+          <h3>Industrial energy management</h3>
+          <p>Plant-to-machine energy transparency, consumption analytics and forecasting of load, PV and grid demand.</p>
+        </div>
+        <div class="card">
+          <div class="mono">Quality</div>
+          <h3>AI-based root-cause analysis</h3>
+          <p>Proofs of value for data-driven quality analysis across plants, with a clear focus on business benefit.</p>
+        </div>
+        <div class="card">
+          <div class="mono">Data</div>
+          <h3>Manufacturing data platforms</h3>
+          <p>Event streaming, BI and data integration that bring shop-floor data to decision-makers.</p>
+        </div>
+        <div class="card">
+          <div class="mono">Transformation</div>
+          <h3>Global rollouts</h3>
+          <p>Multi-site migrations, key-user networks, training and service operations that make products stick.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head">
+      <div class="mono">03 / Experience</div>
+      <div>
+        <div class="role">
+          <div class="role-top">
+            <div>
+              <h3>Product &amp; Service Manager – Smart Industry</h3>
+              <div class="org">Robert Bosch GmbH · Bosch Digital · Stuttgart</div>
+            </div>
+            <div class="mono">2023 – Present</div>
+          </div>
+          <div class="sub">
+            <div class="mono">2025 – Present · Energy Management System</div>
+            <p>End-to-end ownership of a global energy-management platform for Bosch plants: migration of 70+ sites, a cross-functional team of 12–15 FTE across product, delivery and operations, and budget responsibility above €2M. Led rollout, training and key-user enablement, and the pricing and allocation model for internal customers.</p>
+          </div>
+          <div class="sub">
+            <div class="mono">2024 – 2026 · Quality root-cause analysis</div>
+            <p>Drove a proof of value for AI-based root-cause analysis across two plants, benchmarking specialised vendors against an internal data-platform approach.</p>
+          </div>
+          <div class="sub">
+            <div class="mono">2024 · Manufacturing data &amp; BI</div>
+            <p>Product ownership for a data and BI product built on event streaming, ETL and reporting for manufacturing analytics.</p>
+          </div>
+          <div class="sub">
+            <div class="mono">2023 · Maintenance application</div>
+            <p>Product &amp; Service Owner for a maintenance app integrated with SAP R/3 and S/4HANA.</p>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-top">
+            <div>
+              <h3>Procurement – Connectivity &amp; Partner Management</h3>
+              <div class="org">Porsche AG · Stuttgart</div>
+            </div>
+            <div class="mono">2020 – 2022</div>
+          </div>
+          <ul>
+            <li>Sourcing and partner management for connectivity and digital services.</li>
+            <li>Commercial negotiations and structuring of long-term supplier relationships.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-top">
+            <div>
+              <h3>Project Procurement eAxle · Working Student · Master's Thesis</h3>
+              <div class="org">Robert Bosch GmbH</div>
+            </div>
+            <div class="mono">2017 – 2020</div>
+          </div>
+          <ul>
+            <li>Project procurement for electric-axle development (PreMaster programme).</li>
+            <li>Master's thesis on augmented-reality-supported picking.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="mono">04 / Education</div>
+      <div class="role" style="border-bottom:1px solid var(--line)">
+        <div class="role-top">
+          <div>
+            <h3>M.Eng. Smart Factory – Industry 4.0</h3>
+            <div class="org">Esslingen University of Applied Sciences</div>
+          </div>
+          <div class="mono">2018 – 2020</div>
+        </div>
+        <ul><li>Thesis: augmented reality in order picking – grade 1.1</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head">
+      <div class="mono">05 / Skills</div>
+      <div>
+        <div class="skill-group">
+          <h3>Product &amp; business</h3>
+          <div class="tags">
+            <span>Product &amp; service management</span><span>Commercial management</span><span>Pricing &amp; business cases</span><span>Procurement</span><span>Global transformation</span><span>Stakeholder management</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Manufacturing IT &amp; data</h3>
+          <div class="tags">
+            <span>Energy management</span><span>Kafka</span><span>Solace</span><span>Power BI</span><span>Oracle</span><span>MS SQL</span><span>Data Vault</span><span>Talend</span><span>SAP S/4HANA</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Platforms &amp; operations</h3>
+          <div class="tags">
+            <span>Kubernetes / Rancher</span><span>ServiceNow</span><span>Splunk</span><span>SASE</span><span>Jira &amp; Confluence</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="tags"><span>German</span><span>English</span><span>Spanish</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <div class="mono">06 / Contact</div>
+    <br>
+    <h2>Let's talk about digital manufacturing.</h2>
+    <p>Open to conversations about manufacturing IT, industrial energy management and product leadership.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:hello@example.invalid">hello@example.invalid</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap mono">
+    <span>© 2026 Fabian Schürg</span>
+    <span>Stuttgart, Germany</span>
+  </div>
+</footer>
+
+</body>
+</html>
