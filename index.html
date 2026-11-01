@@ -152,13 +152,15 @@
   .job li::before { content: ""; position: absolute; left: 0; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: var(--g2); }
   .chapter { margin-top: 28px; }
   .chapter + .chapter { margin-top: 22px; }
+  .chapter ul { margin-top: 6px; }
   .chapter .ch-when { font-size: 13px; font-weight: 600; color: var(--g1); text-transform: uppercase; letter-spacing: .02em; }
   .chapter h4 { font-size: 19px; font-weight: 600; margin-top: 2px; }
   .chapter p { margin-top: 6px; color: var(--muted); }
 
   /* Skills */
   .skills { margin-top: 64px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .skills .card { padding: 32px 36px; }
+  .skills .card { padding: 32px 36px; background: var(--bg-alt); }
+  .skills .chips span { background: var(--bg); }
   .skills h3 { font-size: 21px; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .chips span { font-size: 14px; padding: 6px 14px; border-radius: 980px; background: var(--bg-alt); color: var(--text); }
@@ -219,6 +221,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#focus">Focus</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -230,7 +233,7 @@
     <img class="portrait" src="fabian-schuerg.jpg" alt="Portrait of Fabian Schürg" width="720" height="720">
     <div class="eyebrow">Fabian Schürg</div>
     <h1>Digital products for <span class="grad">modern manufacturing.</span></h1>
-    <p class="lead">Product &amp; Service Manager for Smart Industry at Bosch. Turning factory data into better decisions on energy, quality and maintenance.</p>
+    <p class="lead">Manufacturing IT product leader at Bosch. Scaling industrial technology across 70+ sites worldwide.</p>
     <div class="ctas">
       <a class="pill" href="#contact">Get in touch</a>
       <a class="more" href="https://www.linkedin.com/in/fabianschuerg" target="_blank" rel="noopener">View LinkedIn</a>
@@ -243,9 +246,9 @@
     <div class="kicker">Impact</div>
     <h2>One platform. Dozens of plants.</h2>
     <div class="stats">
-      <div class="stat"><b>70+</b><span>manufacturing sites migrated</span></div>
+      <div class="stat"><b>70+</b><span>sites migrated</span></div>
+      <div class="stat"><b>28</b><span>countries across EMEA, APAC &amp; Americas</span></div>
       <div class="stat"><b>4,000+</b><span>platform users</span></div>
-      <div class="stat"><b>12–15</b><span>FTE cross-functional team</span></div>
       <div class="stat"><b>&gt;€2M</b><span>budget responsibility</span></div>
     </div>
   </div>
@@ -256,9 +259,9 @@
     <div class="kicker">About</div>
     <h2>Between the shop floor, IT and the business case.</h2>
     <div class="narrow about" style="margin-top:56px">
-      <p>At Bosch, I own digital products for the global manufacturing network. Today that means <strong>a global Energy Management System</strong> that gives plants transparency on energy consumption – from plant level down to individual machines.</p>
-      <p>Before that, I worked in procurement and partner management at <strong>Porsche</strong>, which taught me how to negotiate, structure vendor relationships and keep a business case honest. I hold a <strong>Master of Engineering in Smart Factory – Industry 4.0</strong>.</p>
-      <p>What I enjoy most: taking a complex, multi-site transformation, finding the simplest product that solves the real problem – and getting people to actually use it.</p>
+      <p>I'm a <strong>manufacturing IT product leader</strong> with experience scaling industrial technology across 70+ sites globally. I combine product strategy, technology transformation and commercial expertise with cross-functional leadership.</p>
+      <p>At Bosch, I built the global product and operating model for an <strong>Energy Management System</strong> and led its rollout across 28 countries. Before that, I led strategic sourcing for the <strong>Volkswagen Group's global connectivity ecosystem</strong> at Porsche, delivering around €1B in realized savings.</p>
+      <p>What I enjoy most: translating business requirements into scalable technology solutions – and making them work across IT, operations and engineering.</p>
     </div>
   </div>
 </section>
@@ -271,22 +274,22 @@
       <div class="card" style="--c: var(--energy)">
         <div class="tag">Energy</div>
         <h3>Industrial energy management</h3>
-        <p>Plant-to-machine transparency, consumption analytics and forecasting of load, PV and grid demand.</p>
-      </div>
-      <div class="card" style="--c: var(--quality)">
-        <div class="tag">Quality</div>
-        <h3>AI-based root-cause analysis</h3>
-        <p>Proofs of value for data-driven quality analysis across plants – measured by business benefit.</p>
+        <p>Global energy KPI reporting, plant-to-machine transparency and future capabilities such as forecasting and optimization.</p>
       </div>
       <div class="card" style="--c: var(--data)">
         <div class="tag">Data</div>
-        <h3>Manufacturing data platforms</h3>
-        <p>Event streaming, BI and data integration that bring shop-floor data to decision-makers.</p>
+        <h3>Manufacturing data &amp; analytics</h3>
+        <p>End-to-end data architecture – from ingestion and warehousing to calculation logic and dashboards people actually use.</p>
+      </div>
+      <div class="card" style="--c: var(--quality)">
+        <div class="tag">Architecture</div>
+        <h3>Enterprise architecture &amp; integration</h3>
+        <p>Standardized integration and secure access patterns that connect shop-floor applications with SAP and enterprise IT.</p>
       </div>
       <div class="card" style="--c: var(--transf)">
         <div class="tag">Transformation</div>
-        <h3>Global rollouts</h3>
-        <p>Multi-site migrations, key-user networks, training and service operations that make products stick.</p>
+        <h3>Global rollouts &amp; operating models</h3>
+        <p>Multi-site migrations, enablement models, partner management and operations that make products scale.</p>
       </div>
     </div>
   </div>
@@ -298,86 +301,118 @@
     <h2>Career so far.</h2>
     <div class="timeline">
       <div class="job">
-        <div class="when">2023 – Present</div>
+        <div class="when">Nov 2025 – Present</div>
         <div>
           <h3>Product &amp; Service Manager – Smart Industry</h3>
-          <div class="org">Robert Bosch GmbH · Bosch Digital · Stuttgart</div>
-          <div class="chapter">
-            <div class="ch-when">2025 – Present</div>
-            <h4>Energy Management System</h4>
-            <p>End-to-end ownership of a global energy-management platform: 70+ sites migrated, 4,000+ users, a cross-functional team of 12–15 FTE and budget responsibility above €2M. Led rollout, training, key-user enablement and the internal pricing model.</p>
-          </div>
-          <div class="chapter">
-            <div class="ch-when">2024 – 2026</div>
-            <h4>Quality root-cause analysis</h4>
-            <p>Drove a proof of value for AI-based root-cause analysis across two plants, benchmarking specialised vendors against an internal data-platform approach.</p>
-          </div>
-          <div class="chapter">
-            <div class="ch-when">2024</div>
-            <h4>Manufacturing data &amp; BI</h4>
-            <p>Product ownership for a data and BI product built on event streaming, ETL and reporting.</p>
-          </div>
-          <div class="chapter">
-            <div class="ch-when">2023</div>
-            <h4>Maintenance application</h4>
-            <p>Product &amp; Service Owner for a maintenance app integrated with SAP R/3 and S/4HANA.</p>
-          </div>
-        </div>
-      </div>
-      <div class="job">
-        <div class="when">2020 – 2022</div>
-        <div>
-          <h3>Procurement – Connectivity &amp; Partner Management</h3>
-          <div class="org">Porsche AG · Stuttgart</div>
+          <div class="org">Robert Bosch GmbH · Stuttgart</div>
           <ul>
-            <li>Sourcing and partner management for connectivity and digital services.</li>
-            <li>Commercial negotiations and structuring of long-term supplier relationships.</li>
+            <li>Established the global product and operating model for a third-party Energy Management System – requirements, rollout, enablement and operations.</li>
+            <li>Led the migration of 70+ sites across 28 countries and built a scalable enablement model for the user base.</li>
+            <li>Standardized global energy KPI reporting and integration architecture across EMEA, APAC and the Americas.</li>
+            <li>Defined product strategy and roadmap, managed a &gt;€2M budget, coordinated cross-functional teams and partners, and shaped future capabilities including forecasting and optimization.</li>
           </ul>
         </div>
       </div>
       <div class="job">
-        <div class="when">2017 – 2020</div>
+        <div class="when">Jan 2023 – Oct 2025</div>
         <div>
-          <h3>Project Procurement eAxle · Working Student</h3>
-          <div class="org">Robert Bosch GmbH</div>
+          <h3>Product &amp; Service Manager &amp; Consultant – Manufacturing IT</h3>
+          <div class="org">Robert Bosch GmbH · Stuttgart</div>
+          <div class="chapter">
+            <h4>Maintenance Management Product</h4>
+            <ul>
+              <li>Pioneered Bosch's first secure mobile access to enterprise Manufacturing IT applications, establishing the standard architecture for future use.</li>
+              <li>Led the first productive implementation of a maintenance application, including SAP R/3 and S/4HANA integration.</li>
+              <li>Reduced recurring infrastructure costs by optimizing CPU and memory allocation for the Kubernetes-based application.</li>
+            </ul>
+          </div>
+          <div class="chapter">
+            <h4>Data &amp; Analytics Product</h4>
+            <ul>
+              <li>Led the end-to-end redesign of all product dashboards, coordinating customers, users, UX specialists and developers, and created a reusable design guide.</li>
+              <li>Designed and established a structured testing process to strengthen quality assurance and release readiness.</li>
+              <li>Worked across the full data architecture: ingestion, data warehousing, complex calculation logic, automated processing and analytics.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">Jul 2020 – Dec 2022</div>
+        <div>
+          <h3>Partner Management – Connectivity</h3>
+          <div class="org">Porsche AG · Stuttgart</div>
           <ul>
-            <li>Project procurement for electric-axle development (PreMaster programme).</li>
-            <li>Master's thesis on augmented-reality-supported order picking.</li>
+            <li>Led strategic sourcing for the Volkswagen Group's global connectivity ecosystem, including central eSIM management and worldwide mobile data connectivity.</li>
+            <li>Delivered ~€1B in realized cost savings through cross-brand sourcing synergies.</li>
+            <li>Secured C-level approval at Porsche and Volkswagen Group level for negotiation strategy, contract value and sourcing outcomes.</li>
           </ul>
         </div>
       </div>
       <div class="job">
         <div class="when">2018 – 2020</div>
         <div>
-          <h3>M.Eng. Smart Factory – Industry 4.0</h3>
-          <div class="org">Esslingen University of Applied Sciences</div>
-          <ul><li>Thesis on augmented reality in order picking – grade 1.1</li></ul>
+          <h3>Master's Thesis &amp; Working Student – Industry 4.0</h3>
+          <div class="org">Robert Bosch GmbH</div>
+          <ul>
+            <li>Designed the software architecture and implemented front- and backend of an AR logistics application, including shortest-path navigation.</li>
+            <li>Working student in Industry 4.0 / Connected Supply Chain.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">Sep 2017 – Aug 2018</div>
+        <div>
+          <h3>Project Procurement eAxle</h3>
+          <div class="org">Robert Bosch GmbH</div>
+          <ul>
+            <li>Guided eAxle suppliers through technical prototype phases to series-production readiness.</li>
+            <li>Reduced series costs during industrialization and developed a second-source concept.</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="skills" class="alt">
+<section class="alt" id="education">
+  <div class="wrap reveal">
+    <div class="kicker">Education</div>
+    <h2>Engineering meets industry.</h2>
+    <div class="grid">
+      <div class="card" style="--c: var(--g1)">
+        <div class="tag">2018 – 2020</div>
+        <h3>M.Eng. Smart Factory – Industry 4.0</h3>
+        <p>Esslingen University of Applied Sciences · GPA 1.5</p>
+      </div>
+      <div class="card" style="--c: var(--g3)">
+        <div class="tag">2013 – 2017</div>
+        <h3>B.Sc. Industrial Engineering</h3>
+        <p>Pforzheim University · GPA 2.1</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
   <div class="wrap reveal">
     <div class="kicker">Skills</div>
     <h2>Toolbox.</h2>
     <div class="skills">
       <div class="card">
-        <h3>Product &amp; business</h3>
-        <div class="chips"><span>Product &amp; service management</span><span>Commercial management</span><span>Pricing &amp; business cases</span><span>Procurement</span><span>Global transformation</span><span>Stakeholder management</span></div>
+        <h3>Core expertise</h3>
+        <div class="chips"><span>Manufacturing IT</span><span>Smart Factory</span><span>Product Strategy</span><span>Enterprise Architecture</span><span>Data Integration</span><span>Cross-Functional Leadership</span></div>
       </div>
       <div class="card">
-        <h3>Manufacturing IT &amp; data</h3>
-        <div class="chips"><span>Energy management</span><span>Kafka</span><span>Solace</span><span>Power BI</span><span>Oracle</span><span>MS SQL</span><span>Data Vault</span><span>Talend</span><span>SAP S/4HANA</span></div>
+        <h3>Commercial</h3>
+        <div class="chips"><span>Strategic sourcing</span><span>Negotiation</span><span>Partner management</span><span>Budget &amp; business cases</span><span>Operating models</span></div>
       </div>
       <div class="card">
-        <h3>Platforms &amp; operations</h3>
-        <div class="chips"><span>Kubernetes / Rancher</span><span>ServiceNow</span><span>Splunk</span><span>SASE</span><span>Jira &amp; Confluence</span></div>
+        <h3>Technology</h3>
+        <div class="chips"><span>SAP R/3 &amp; S/4HANA</span><span>Kubernetes</span><span>Data warehousing</span><span>Event streaming</span><span>Power BI</span><span>ServiceNow</span></div>
       </div>
       <div class="card">
         <h3>Languages</h3>
-        <div class="chips"><span>German</span><span>English</span><span>Spanish</span></div>
+        <div class="chips"><span>German</span><span>English</span><span>Spanish</span><span>French</span><span>Portuguese</span></div>
       </div>
     </div>
   </div>
