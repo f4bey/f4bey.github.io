@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fabian Schürg – Digital Manufacturing Product Leader</title>
+<meta property="og:image" content="https://f4bey.github.io/fabian-schuerg.jpg">
 <meta name="description" content="Fabian Schürg – Product & Service Manager for Smart Industry at Bosch. Building digital products for manufacturing: energy management, shop-floor data and plant-wide platforms.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,6 +68,12 @@
     max-width: 15ch;
   }
   .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero-grid { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
+  .portrait {
+    width: 300px; height: auto; aspect-ratio: 1; object-fit: cover; display: block;
+    border-radius: 16px; border: 1px solid var(--line);
+    background: #fff;
+  }
   .hero p.lead { margin-top: 28px; font-size: 20px; color: var(--muted); max-width: 58ch; }
   .cta { margin-top: 40px; display: flex; gap: 14px; flex-wrap: wrap; }
   .btn {
@@ -140,7 +147,9 @@
   @media (max-width: 760px) {
     body { font-size: 16px; }
     nav ul { display: none; }
-    .hero { padding: 64px 0 48px; }
+    .hero { padding: 48px 0 48px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .portrait { width: 140px; border-radius: 50%; order: -1; }
     .stats { grid-template-columns: repeat(2, 1fr); }
     .stat:nth-child(3) { padding-left: 0; border-left: 0; }
     .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
@@ -166,7 +175,8 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap">
+  <div class="wrap hero-grid">
+    <div>
     <div class="mono">Product &amp; Service Manager · Smart Industry · Bosch</div>
     <h1>Digital products that make <em>manufacturing</em> run better.</h1>
     <p class="lead">I lead IT products for factories – from shop-floor data to global platforms used across dozens of plants. My focus is turning industrial data into decisions on energy, quality and maintenance.</p>
@@ -174,6 +184,8 @@
       <a class="btn primary" href="#contact">Get in touch</a>
       <a class="btn" href="#experience">View experience</a>
     </div>
+    </div>
+    <img class="portrait" src="fabian-schuerg.jpg" alt="Portrait of Fabian Schürg" width="720" height="720">
   </div>
 </header>
 
