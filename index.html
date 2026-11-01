@@ -4,31 +4,38 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fabian Schürg – Digital Manufacturing Product Leader</title>
-<meta property="og:image" content="https://f4bey.github.io/fabian-schuerg.jpg">
 <meta name="description" content="Fabian Schürg – Product & Service Manager for Smart Industry at Bosch. Building digital products for manufacturing: energy management, shop-floor data and plant-wide platforms.">
+<meta property="og:title" content="Fabian Schürg – Digital Manufacturing Product Leader">
+<meta property="og:description" content="Digital products that make manufacturing run better.">
+<meta property="og:image" content="https://f4bey.github.io/fabian-schuerg.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f6f5f2;
-    --surface: #ffffff;
-    --text: #17191c;
-    --muted: #5d636b;
-    --line: #dcdad4;
-    --accent: #c2410c;
-    --accent-soft: #fbe9df;
-    --max: 960px;
+    --bg: #ffffff;
+    --bg-alt: #f5f5f7;
+    --card: #ffffff;
+    --text: #1d1d1f;
+    --muted: #6e6e73;
+    --hair: #d2d2d7;
+    --blue: #0071e3;
+    --blue-hover: #0077ed;
+    --link: #0066cc;
+    --nav: rgba(255,255,255,.72);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #121417;
-      --surface: #1a1d21;
-      --text: #ecebe8;
-      --muted: #9aa0a8;
-      --line: #2b2f35;
-      --accent: #fb8a4c;
-      --accent-soft: #2a1d16;
+      --bg: #000000;
+      --bg-alt: #161617;
+      --card: #1d1d1f;
+      --text: #f5f5f7;
+      --muted: #a1a1a6;
+      --hair: #424245;
+      --blue: #0071e3;
+      --blue-hover: #0077ed;
+      --link: #2997ff;
+      --nav: rgba(22,22,23,.72);
     }
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,127 +43,134 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font: 400 17px/1.65 "IBM Plex Sans", system-ui, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.47;
+    letter-spacing: -.022em;
     -webkit-font-smoothing: antialiased;
   }
-  a { color: inherit; }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-  .mono {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 13px;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+  .narrow { max-width: 692px; margin: 0 auto; }
 
   /* Nav */
-  nav { border-bottom: 1px solid var(--line); }
-  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
-  nav .name { font-weight: 600; text-decoration: none; }
-  nav ul { display: flex; gap: 28px; list-style: none; }
-  nav ul a { text-decoration: none; color: var(--muted); font-size: 15px; }
-  nav ul a:hover { color: var(--text); }
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--nav);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid color-mix(in srgb, var(--hair) 60%, transparent);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 48px; }
+  nav .name { color: var(--text); font-weight: 600; font-size: 15px; }
+  nav ul { display: flex; gap: 32px; list-style: none; }
+  nav ul a { color: var(--text); opacity: .8; font-size: 12px; letter-spacing: -.01em; }
+  nav ul a:hover { opacity: 1; text-decoration: none; }
 
   /* Hero */
-  .hero { padding: 96px 0 72px; }
-  .hero .mono { margin-bottom: 20px; }
-  .hero h1 {
-    font-size: clamp(38px, 6vw, 64px);
-    line-height: 1.08;
-    font-weight: 600;
-    letter-spacing: -.02em;
-    max-width: 15ch;
-  }
-  .hero h1 em { font-style: normal; color: var(--accent); }
-  .hero-grid { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
+  .hero { text-align: center; padding: 96px 0 104px; }
   .portrait {
-    width: 300px; height: auto; aspect-ratio: 1; object-fit: cover; display: block;
-    border-radius: 16px; border: 1px solid var(--line);
-    background: #fff;
+    width: 168px; height: 168px; border-radius: 50%;
+    object-fit: cover; display: block; margin: 0 auto 32px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.08);
   }
-  .hero p.lead { margin-top: 28px; font-size: 20px; color: var(--muted); max-width: 58ch; }
-  .cta { margin-top: 40px; display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn {
-    display: inline-block; padding: 12px 22px; border-radius: 6px;
-    text-decoration: none; font-weight: 500; font-size: 15px;
-    border: 1px solid var(--line); transition: border-color .15s, background .15s;
+  .eyebrow { font-size: 21px; font-weight: 600; color: var(--muted); letter-spacing: .004em; }
+  h1 {
+    font-size: clamp(44px, 8vw, 80px);
+    line-height: 1.05; font-weight: 700; letter-spacing: -.015em;
+    margin: 10px auto 0; max-width: 13ch;
   }
-  .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
-  .btn:hover { border-color: var(--text); }
-
-  /* Stats */
-  .stats {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  .lead {
+    font-size: clamp(19px, 2.4vw, 24px); line-height: 1.4;
+    color: var(--muted); max-width: 34ch; margin: 22px auto 0;
+    letter-spacing: .009em; font-weight: 400;
   }
-  .stat { padding: 28px 20px 28px 0; }
-  .stat + .stat { padding-left: 20px; border-left: 1px solid var(--line); }
-  .stat b { display: block; font-size: 34px; font-weight: 600; letter-spacing: -.02em; }
-  .stat span { font-size: 14px; color: var(--muted); }
+  .ctas { margin-top: 36px; display: flex; gap: 28px; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .pill {
+    display: inline-block; background: var(--blue); color: #fff;
+    font-size: 17px; padding: 12px 24px; border-radius: 980px;
+  }
+  .pill:hover { background: var(--blue-hover); text-decoration: none; }
+  .more { font-size: 19px; }
+  .more::after { content: " ›"; }
 
   /* Sections */
-  section { padding: 88px 0 0; }
-  .sec-head { display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
-  .sec-head h2 { font-size: 28px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
-  .sec-body { max-width: 640px; }
-  .sec-body p + p { margin-top: 16px; }
-
-  /* Focus cards */
-  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .card {
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: 10px; padding: 24px;
+  section { padding: 104px 0; }
+  section.alt { background: var(--bg-alt); }
+  .kicker { font-size: 17px; font-weight: 600; color: var(--muted); text-align: center; }
+  h2 {
+    font-size: clamp(36px, 5.5vw, 56px); line-height: 1.07; font-weight: 700;
+    letter-spacing: -.005em; text-align: center; margin: 8px auto 0; max-width: 18ch;
   }
-  .card .mono { color: var(--accent); margin-bottom: 10px; }
-  .card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
-  .card p { font-size: 15px; color: var(--muted); }
+  .intro { text-align: center; color: var(--muted); font-size: 21px; line-height: 1.38; max-width: 36ch; margin: 18px auto 0; letter-spacing: .011em; }
 
-  /* Timeline */
-  .role { padding: 28px 0; border-top: 1px solid var(--line); }
-  .role:last-child { border-bottom: 1px solid var(--line); }
-  .role-top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: baseline; }
-  .role h3 { font-size: 19px; font-weight: 600; }
-  .role .org { color: var(--muted); margin-top: 2px; }
-  .role ul { margin-top: 14px; padding-left: 18px; }
-  .role li { margin-top: 6px; }
-  .role li::marker { color: var(--accent); }
-  .sub { margin-top: 18px; padding-left: 16px; border-left: 2px solid var(--line); }
-  .sub + .sub { margin-top: 14px; }
-  .sub .mono { margin-bottom: 4px; }
-  .sub p { font-size: 15.5px; }
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 64px; text-align: center; }
+  .stat b { display: block; font-size: clamp(40px, 5vw, 56px); font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+  .stat span { display: block; margin-top: 8px; font-size: 15px; color: var(--muted); max-width: 18ch; margin-left: auto; margin-right: auto; }
+
+  /* About */
+  .about p { font-size: 21px; line-height: 1.52; color: var(--muted); letter-spacing: .011em; }
+  .about p + p { margin-top: 24px; }
+  .about strong { color: var(--text); font-weight: 600; }
+
+  /* Cards */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 64px; }
+  .card { background: var(--card); border-radius: 28px; padding: 40px; }
+  .card .tag { font-size: 14px; font-weight: 600; color: var(--muted); }
+  .card h3 { font-size: 28px; line-height: 1.14; font-weight: 700; margin-top: 8px; letter-spacing: .004em; }
+  .card p { margin-top: 12px; color: var(--muted); }
+
+  /* Experience */
+  .timeline { margin-top: 64px; }
+  .job { padding: 40px 0; border-top: 1px solid var(--hair); display: grid; grid-template-columns: 180px 1fr; gap: 32px; }
+  .job:last-child { border-bottom: 1px solid var(--hair); }
+  .when { color: var(--muted); font-size: 15px; padding-top: 6px; }
+  .job h3 { font-size: 24px; font-weight: 600; line-height: 1.2; }
+  .job .org { color: var(--muted); margin-top: 4px; }
+  .job p.desc { margin-top: 14px; }
+  .job ul { margin-top: 14px; list-style: none; }
+  .job li { padding-left: 18px; position: relative; margin-top: 8px; }
+  .job li::before { content: ""; position: absolute; left: 0; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: var(--hair); }
+  .chapter { margin-top: 28px; }
+  .chapter + .chapter { margin-top: 22px; }
+  .chapter .ch-when { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .02em; }
+  .chapter h4 { font-size: 19px; font-weight: 600; margin-top: 2px; }
+  .chapter p { margin-top: 6px; color: var(--muted); }
 
   /* Skills */
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-  .tags span {
-    font-size: 14px; padding: 5px 12px; border-radius: 999px;
-    background: var(--surface); border: 1px solid var(--line);
-  }
-  .skill-group + .skill-group { margin-top: 28px; }
+  .skills { margin-top: 64px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .skills .card { padding: 32px 36px; }
+  .skills h3 { font-size: 21px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .chips span { font-size: 14px; padding: 6px 14px; border-radius: 980px; background: var(--bg-alt); color: var(--text); }
+  section.alt .chips span { background: var(--bg-alt); }
 
   /* Contact */
-  .contact {
-    margin: 96px 0 0; padding: 56px; border-radius: 14px;
-    background: var(--accent-soft);
-  }
-  .contact h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; max-width: 20ch; }
-  .contact p { margin-top: 14px; color: var(--muted); max-width: 52ch; }
+  .contact { text-align: center; }
+  .contact .ctas { margin-top: 40px; }
 
-  footer { padding: 40px 0 56px; }
-  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer { border-top: 1px solid var(--hair); padding: 22px 0 40px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--muted); letter-spacing: -.01em; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
   @media (max-width: 760px) {
-    body { font-size: 16px; }
     nav ul { display: none; }
-    .hero { padding: 48px 0 48px; }
-    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-    .portrait { width: 140px; border-radius: 50%; order: -1; }
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .stat:nth-child(3) { padding-left: 0; border-left: 0; }
-    .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
-    .sec-head { grid-template-columns: 1fr; gap: 20px; }
-    .cards { grid-template-columns: 1fr; }
-    section { padding-top: 64px; }
-    .contact { padding: 36px 24px; }
+    .hero { padding: 64px 0 72px; }
+    .portrait { width: 132px; height: 132px; }
+    .eyebrow { font-size: 17px; }
+    section { padding: 72px 0; }
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 40px 16px; margin-top: 48px; }
+    .about p { font-size: 19px; }
+    .grid, .skills { grid-template-columns: 1fr; margin-top: 48px; }
+    .card { padding: 32px 28px; border-radius: 22px; }
+    .job { grid-template-columns: 1fr; gap: 6px; padding: 32px 0; }
+    .timeline { margin-top: 48px; }
   }
 </style>
 </head>
@@ -167,6 +181,7 @@
     <a class="name" href="#">Fabian Schürg</a>
     <ul>
       <li><a href="#about">About</a></li>
+      <li><a href="#focus">Focus</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -175,197 +190,191 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-    <div class="mono">Product &amp; Service Manager · Smart Industry · Bosch</div>
-    <h1>Digital products that make <em>manufacturing</em> run better.</h1>
-    <p class="lead">I lead IT products for factories – from shop-floor data to global platforms used across dozens of plants. My focus is turning industrial data into decisions on energy, quality and maintenance.</p>
-    <div class="cta">
-      <a class="btn primary" href="#contact">Get in touch</a>
-      <a class="btn" href="#experience">View experience</a>
-    </div>
-    </div>
+  <div class="wrap">
     <img class="portrait" src="fabian-schuerg.jpg" alt="Portrait of Fabian Schürg" width="720" height="720">
+    <div class="eyebrow">Fabian Schürg</div>
+    <h1>Digital products for modern manufacturing.</h1>
+    <p class="lead">Product &amp; Service Manager for Smart Industry at Bosch. Turning factory data into better decisions on energy, quality and maintenance.</p>
+    <div class="ctas">
+      <a class="pill" href="#contact">Get in touch</a>
+      <a class="more" href="https://www.linkedin.com/in/fabianschuerg" target="_blank" rel="noopener">View LinkedIn</a>
+    </div>
   </div>
 </header>
 
-<div class="wrap">
-  <div class="stats">
-    <div class="stat"><b>70+</b><span>manufacturing sites migrated to one platform</span></div>
-    <div class="stat"><b>12–15</b><span>FTE cross-functional product team</span></div>
-    <div class="stat"><b>&gt;€2M</b><span>annual budget responsibility</span></div>
-    <div class="stat"><b>4,000+</b><span>users on the energy management platform</span></div>
+<section class="alt">
+  <div class="wrap reveal">
+    <div class="kicker">Impact</div>
+    <h2>One platform. Dozens of plants.</h2>
+    <div class="stats">
+      <div class="stat"><b>70+</b><span>manufacturing sites migrated</span></div>
+      <div class="stat"><b>4,000+</b><span>platform users</span></div>
+      <div class="stat"><b>12–15</b><span>FTE cross-functional team</span></div>
+      <div class="stat"><b>&gt;€2M</b><span>budget responsibility</span></div>
+    </div>
   </div>
-</div>
+</section>
 
-<main class="wrap">
+<section id="about">
+  <div class="wrap reveal">
+    <div class="kicker">About</div>
+    <h2>Between the shop floor, IT and the business case.</h2>
+    <div class="narrow about" style="margin-top:56px">
+      <p>At Bosch, I own digital products for the global manufacturing network. Today that means <strong>a global Energy Management System</strong> that gives plants transparency on energy consumption – from plant level down to individual machines.</p>
+      <p>Before that, I worked in procurement and partner management at <strong>Porsche</strong>, which taught me how to negotiate, structure vendor relationships and keep a business case honest. I hold a <strong>Master of Engineering in Smart Factory – Industry 4.0</strong>.</p>
+      <p>What I enjoy most: taking a complex, multi-site transformation, finding the simplest product that solves the real problem – and getting people to actually use it.</p>
+    </div>
+  </div>
+</section>
 
-  <section id="about">
-    <div class="sec-head">
-      <div class="mono">01 / About</div>
-      <div class="sec-body">
-        <h2>Between the shop floor, IT and the business case.</h2>
-        <br>
-        <p>I've spent my career at the intersection of manufacturing, technology and commercial management. At Bosch, I own digital products for the global manufacturing network – currently a global Energy Management System that gives plants transparency on energy consumption from plant level down to individual machines.</p>
-        <p>Before that I worked in procurement and partner management at Porsche, which taught me how to negotiate, structure vendor relationships and keep a business case honest. I hold a Master of Engineering in Smart Factory – Industry 4.0.</p>
-        <p>What I enjoy most: taking a complex, multi-site transformation, finding the simplest product that solves the real problem, and getting people to actually use it.</p>
+<section id="focus" class="alt">
+  <div class="wrap reveal">
+    <div class="kicker">Focus</div>
+    <h2>Where I create value.</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="tag">Energy</div>
+        <h3>Industrial energy management</h3>
+        <p>Plant-to-machine transparency, consumption analytics and forecasting of load, PV and grid demand.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Quality</div>
+        <h3>AI-based root-cause analysis</h3>
+        <p>Proofs of value for data-driven quality analysis across plants – measured by business benefit.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Data</div>
+        <h3>Manufacturing data platforms</h3>
+        <p>Event streaming, BI and data integration that bring shop-floor data to decision-makers.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Transformation</div>
+        <h3>Global rollouts</h3>
+        <p>Multi-site migrations, key-user networks, training and service operations that make products stick.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <div class="sec-head">
-      <div class="mono">02 / Focus</div>
-      <div class="cards">
-        <div class="card">
-          <div class="mono">Energy</div>
-          <h3>Industrial energy management</h3>
-          <p>Plant-to-machine energy transparency, consumption analytics and forecasting of load, PV and grid demand.</p>
-        </div>
-        <div class="card">
-          <div class="mono">Quality</div>
-          <h3>AI-based root-cause analysis</h3>
-          <p>Proofs of value for data-driven quality analysis across plants, with a clear focus on business benefit.</p>
-        </div>
-        <div class="card">
-          <div class="mono">Data</div>
-          <h3>Manufacturing data platforms</h3>
-          <p>Event streaming, BI and data integration that bring shop-floor data to decision-makers.</p>
-        </div>
-        <div class="card">
-          <div class="mono">Transformation</div>
-          <h3>Global rollouts</h3>
-          <p>Multi-site migrations, key-user networks, training and service operations that make products stick.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="sec-head">
-      <div class="mono">03 / Experience</div>
-      <div>
-        <div class="role">
-          <div class="role-top">
-            <div>
-              <h3>Product &amp; Service Manager – Smart Industry</h3>
-              <div class="org">Robert Bosch GmbH · Bosch Digital · Stuttgart</div>
-            </div>
-            <div class="mono">2023 – Present</div>
+<section id="experience">
+  <div class="wrap reveal">
+    <div class="kicker">Experience</div>
+    <h2>Career so far.</h2>
+    <div class="timeline">
+      <div class="job">
+        <div class="when">2023 – Present</div>
+        <div>
+          <h3>Product &amp; Service Manager – Smart Industry</h3>
+          <div class="org">Robert Bosch GmbH · Bosch Digital · Stuttgart</div>
+          <div class="chapter">
+            <div class="ch-when">2025 – Present</div>
+            <h4>Energy Management System</h4>
+            <p>End-to-end ownership of a global energy-management platform: 70+ sites migrated, 4,000+ users, a cross-functional team of 12–15 FTE and budget responsibility above €2M. Led rollout, training, key-user enablement and the internal pricing model.</p>
           </div>
-          <div class="sub">
-            <div class="mono">2025 – Present · Energy Management System</div>
-            <p>End-to-end ownership of a global energy-management platform for Bosch plants: migration of 70+ sites, a cross-functional team of 12–15 FTE across product, delivery and operations, and budget responsibility above €2M. Led rollout, training and key-user enablement, and the pricing and allocation model for internal customers.</p>
-          </div>
-          <div class="sub">
-            <div class="mono">2024 – 2026 · Quality root-cause analysis</div>
+          <div class="chapter">
+            <div class="ch-when">2024 – 2026</div>
+            <h4>Quality root-cause analysis</h4>
             <p>Drove a proof of value for AI-based root-cause analysis across two plants, benchmarking specialised vendors against an internal data-platform approach.</p>
           </div>
-          <div class="sub">
-            <div class="mono">2024 · Manufacturing data &amp; BI</div>
-            <p>Product ownership for a data and BI product built on event streaming, ETL and reporting for manufacturing analytics.</p>
+          <div class="chapter">
+            <div class="ch-when">2024</div>
+            <h4>Manufacturing data &amp; BI</h4>
+            <p>Product ownership for a data and BI product built on event streaming, ETL and reporting.</p>
           </div>
-          <div class="sub">
-            <div class="mono">2023 · Maintenance application</div>
+          <div class="chapter">
+            <div class="ch-when">2023</div>
+            <h4>Maintenance application</h4>
             <p>Product &amp; Service Owner for a maintenance app integrated with SAP R/3 and S/4HANA.</p>
           </div>
         </div>
-
-        <div class="role">
-          <div class="role-top">
-            <div>
-              <h3>Procurement – Connectivity &amp; Partner Management</h3>
-              <div class="org">Porsche AG · Stuttgart</div>
-            </div>
-            <div class="mono">2020 – 2022</div>
-          </div>
+      </div>
+      <div class="job">
+        <div class="when">2020 – 2022</div>
+        <div>
+          <h3>Procurement – Connectivity &amp; Partner Management</h3>
+          <div class="org">Porsche AG · Stuttgart</div>
           <ul>
             <li>Sourcing and partner management for connectivity and digital services.</li>
             <li>Commercial negotiations and structuring of long-term supplier relationships.</li>
           </ul>
         </div>
-
-        <div class="role">
-          <div class="role-top">
-            <div>
-              <h3>Project Procurement eAxle · Working Student · Master's Thesis</h3>
-              <div class="org">Robert Bosch GmbH</div>
-            </div>
-            <div class="mono">2017 – 2020</div>
-          </div>
+      </div>
+      <div class="job">
+        <div class="when">2017 – 2020</div>
+        <div>
+          <h3>Project Procurement eAxle · Working Student</h3>
+          <div class="org">Robert Bosch GmbH</div>
           <ul>
             <li>Project procurement for electric-axle development (PreMaster programme).</li>
-            <li>Master's thesis on augmented-reality-supported picking.</li>
+            <li>Master's thesis on augmented-reality-supported order picking.</li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <div class="mono">04 / Education</div>
-      <div class="role" style="border-bottom:1px solid var(--line)">
-        <div class="role-top">
-          <div>
-            <h3>M.Eng. Smart Factory – Industry 4.0</h3>
-            <div class="org">Esslingen University of Applied Sciences</div>
-          </div>
-          <div class="mono">2018 – 2020</div>
-        </div>
-        <ul><li>Thesis: augmented reality in order picking – grade 1.1</li></ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="sec-head">
-      <div class="mono">05 / Skills</div>
-      <div>
-        <div class="skill-group">
-          <h3>Product &amp; business</h3>
-          <div class="tags">
-            <span>Product &amp; service management</span><span>Commercial management</span><span>Pricing &amp; business cases</span><span>Procurement</span><span>Global transformation</span><span>Stakeholder management</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <h3>Manufacturing IT &amp; data</h3>
-          <div class="tags">
-            <span>Energy management</span><span>Kafka</span><span>Solace</span><span>Power BI</span><span>Oracle</span><span>MS SQL</span><span>Data Vault</span><span>Talend</span><span>SAP S/4HANA</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <h3>Platforms &amp; operations</h3>
-          <div class="tags">
-            <span>Kubernetes / Rancher</span><span>ServiceNow</span><span>Splunk</span><span>SASE</span><span>Jira &amp; Confluence</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <h3>Languages</h3>
-          <div class="tags"><span>German</span><span>English</span><span>Spanish</span></div>
+      <div class="job">
+        <div class="when">2018 – 2020</div>
+        <div>
+          <h3>M.Eng. Smart Factory – Industry 4.0</h3>
+          <div class="org">Esslingen University of Applied Sciences</div>
+          <ul><li>Thesis on augmented reality in order picking – grade 1.1</li></ul>
         </div>
       </div>
-    </div>
-  </section>
-
-  <div class="contact" id="contact">
-    <div class="mono">06 / Contact</div>
-    <br>
-    <h2>Let's talk about digital manufacturing.</h2>
-    <p>Open to conversations about manufacturing IT, industrial energy management and product leadership.</p>
-    <div class="cta">
-      <a class="btn primary" href="mailto:hello@example.invalid">hello@example.invalid</a>
     </div>
   </div>
+</section>
 
-</main>
+<section id="skills" class="alt">
+  <div class="wrap reveal">
+    <div class="kicker">Skills</div>
+    <h2>Toolbox.</h2>
+    <div class="skills">
+      <div class="card">
+        <h3>Product &amp; business</h3>
+        <div class="chips"><span>Product &amp; service management</span><span>Commercial management</span><span>Pricing &amp; business cases</span><span>Procurement</span><span>Global transformation</span><span>Stakeholder management</span></div>
+      </div>
+      <div class="card">
+        <h3>Manufacturing IT &amp; data</h3>
+        <div class="chips"><span>Energy management</span><span>Kafka</span><span>Solace</span><span>Power BI</span><span>Oracle</span><span>MS SQL</span><span>Data Vault</span><span>Talend</span><span>SAP S/4HANA</span></div>
+      </div>
+      <div class="card">
+        <h3>Platforms &amp; operations</h3>
+        <div class="chips"><span>Kubernetes / Rancher</span><span>ServiceNow</span><span>Splunk</span><span>SASE</span><span>Jira &amp; Confluence</span></div>
+      </div>
+      <div class="card">
+        <h3>Languages</h3>
+        <div class="chips"><span>German</span><span>English</span><span>Spanish</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap reveal">
+    <div class="kicker">Contact</div>
+    <h2>Let's talk manufacturing.</h2>
+    <p class="intro">Open to conversations about manufacturing IT, industrial energy management and product leadership.</p>
+    <div class="ctas">
+      <a class="pill" href="mailto:hello@example.invalid">Send an email</a>
+      <a class="more" href="https://www.linkedin.com/in/fabianschuerg" target="_blank" rel="noopener">Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <div class="wrap mono">
+  <div class="wrap">
     <span>© 2026 Fabian Schürg</span>
     <span>Stuttgart, Germany</span>
   </div>
 </footer>
 
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
 </body>
 </html>
