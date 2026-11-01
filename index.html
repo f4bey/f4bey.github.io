@@ -23,6 +23,8 @@
     --blue-hover: #0077ed;
     --link: #0066cc;
     --nav: rgba(255,255,255,.72);
+    --g1: #0071e3; --g2: #00a3a3; --g3: #34c759;
+    --energy: #28a745; --quality: #8e44ec; --data: #0071e3; --transf: #f56300;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -36,6 +38,8 @@
       --blue-hover: #0077ed;
       --link: #2997ff;
       --nav: rgba(22,22,23,.72);
+      --g1: #2997ff; --g2: #2fd3c4; --g3: #4cd964;
+      --energy: #30d158; --quality: #bf5af2; --data: #2997ff; --transf: #ff9f0a;
     }
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -69,8 +73,20 @@
   nav ul a:hover { opacity: 1; text-decoration: none; }
 
   /* Hero */
-  .hero { text-align: center; padding: 96px 0 104px; }
+  .hero { text-align: center; padding: 96px 0 104px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: -20% -10% auto; height: 120%; z-index: -1;
+    background:
+      radial-gradient(40% 45% at 30% 20%, color-mix(in srgb, var(--g1) 14%, transparent), transparent 70%),
+      radial-gradient(35% 40% at 72% 30%, color-mix(in srgb, var(--g3) 12%, transparent), transparent 70%);
+    filter: blur(20px);
+  }
+  .grad {
+    background: linear-gradient(90deg, var(--g1), var(--g2) 55%, var(--g3));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
   .portrait {
+    border: 4px solid var(--bg); outline: 2px solid color-mix(in srgb, var(--g2) 45%, transparent);
     width: 168px; height: 168px; border-radius: 50%;
     object-fit: cover; display: block; margin: 0 auto 32px;
     box-shadow: 0 10px 40px rgba(0,0,0,.08);
@@ -98,7 +114,7 @@
   /* Sections */
   section { padding: 104px 0; }
   section.alt { background: var(--bg-alt); }
-  .kicker { font-size: 17px; font-weight: 600; color: var(--muted); text-align: center; }
+  .kicker { font-size: 17px; font-weight: 600; color: var(--g2); text-align: center; }
   h2 {
     font-size: clamp(36px, 5.5vw, 56px); line-height: 1.07; font-weight: 700;
     letter-spacing: -.005em; text-align: center; margin: 8px auto 0; max-width: 18ch;
@@ -107,7 +123,7 @@
 
   /* Stats */
   .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 64px; text-align: center; }
-  .stat b { display: block; font-size: clamp(40px, 5vw, 56px); font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+  .stat b { background: linear-gradient(135deg, var(--g1), var(--g3)); -webkit-background-clip: text; background-clip: text; color: transparent; display: block; font-size: clamp(40px, 5vw, 56px); font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
   .stat span { display: block; margin-top: 8px; font-size: 15px; color: var(--muted); max-width: 18ch; margin-left: auto; margin-right: auto; }
 
   /* About */
@@ -118,7 +134,8 @@
   /* Cards */
   .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 64px; }
   .card { background: var(--card); border-radius: 28px; padding: 40px; }
-  .card .tag { font-size: 14px; font-weight: 600; color: var(--muted); }
+  .card .tag { font-size: 14px; font-weight: 600; color: var(--c, var(--muted)); display: inline-flex; align-items: center; gap: 8px; }
+  .card .tag::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--muted)); box-shadow: 0 0 0 5px color-mix(in srgb, var(--c, var(--muted)) 16%, transparent); }
   .card h3 { font-size: 28px; line-height: 1.14; font-weight: 700; margin-top: 8px; letter-spacing: .004em; }
   .card p { margin-top: 12px; color: var(--muted); }
 
@@ -132,10 +149,10 @@
   .job p.desc { margin-top: 14px; }
   .job ul { margin-top: 14px; list-style: none; }
   .job li { padding-left: 18px; position: relative; margin-top: 8px; }
-  .job li::before { content: ""; position: absolute; left: 0; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: var(--hair); }
+  .job li::before { content: ""; position: absolute; left: 0; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: var(--g2); }
   .chapter { margin-top: 28px; }
   .chapter + .chapter { margin-top: 22px; }
-  .chapter .ch-when { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .02em; }
+  .chapter .ch-when { font-size: 13px; font-weight: 600; color: var(--g1); text-transform: uppercase; letter-spacing: .02em; }
   .chapter h4 { font-size: 19px; font-weight: 600; margin-top: 2px; }
   .chapter p { margin-top: 6px; color: var(--muted); }
 
@@ -212,7 +229,7 @@
   <div class="wrap">
     <img class="portrait" src="fabian-schuerg.jpg" alt="Portrait of Fabian Schürg" width="720" height="720">
     <div class="eyebrow">Fabian Schürg</div>
-    <h1>Digital products for modern manufacturing.</h1>
+    <h1>Digital products for <span class="grad">modern manufacturing.</span></h1>
     <p class="lead">Product &amp; Service Manager for Smart Industry at Bosch. Turning factory data into better decisions on energy, quality and maintenance.</p>
     <div class="ctas">
       <a class="pill" href="#contact">Get in touch</a>
@@ -251,22 +268,22 @@
     <div class="kicker">Focus</div>
     <h2>Where I create value.</h2>
     <div class="grid">
-      <div class="card">
+      <div class="card" style="--c: var(--energy)">
         <div class="tag">Energy</div>
         <h3>Industrial energy management</h3>
         <p>Plant-to-machine transparency, consumption analytics and forecasting of load, PV and grid demand.</p>
       </div>
-      <div class="card">
+      <div class="card" style="--c: var(--quality)">
         <div class="tag">Quality</div>
         <h3>AI-based root-cause analysis</h3>
         <p>Proofs of value for data-driven quality analysis across plants – measured by business benefit.</p>
       </div>
-      <div class="card">
+      <div class="card" style="--c: var(--data)">
         <div class="tag">Data</div>
         <h3>Manufacturing data platforms</h3>
         <p>Event streaming, BI and data integration that bring shop-floor data to decision-makers.</p>
       </div>
-      <div class="card">
+      <div class="card" style="--c: var(--transf)">
         <div class="tag">Transformation</div>
         <h3>Global rollouts</h3>
         <p>Multi-site migrations, key-user networks, training and service operations that make products stick.</p>
