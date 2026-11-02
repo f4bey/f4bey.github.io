@@ -17,7 +17,7 @@
     { group: 'Navigate', label: 'About', icon: 'go', run: section('about'), keys: 'profile bio' },
     { group: 'Navigate', label: 'Global footprint', icon: 'globe', run: section('impact'), keys: 'globe map world regions' },
     { group: 'Navigate', label: 'Focus areas', icon: 'go', run: section('focus'), keys: 'value expertise' },
-    { group: 'Navigate', label: 'Energy dashboard demo', icon: 'bolt', run: section('demo'), keys: 'ems live chart energy' },
+    { group: 'Navigate', label: 'Factory dashboard demo', icon: 'bolt', run: section('demo'), keys: 'ems live chart energy production facility manufacturing' },
     { group: 'Navigate', label: 'Experience', icon: 'go', run: section('experience'), keys: 'career cv jobs bosch porsche' },
     { group: 'Navigate', label: 'Education', icon: 'go', run: section('education'), keys: 'university degree master' },
     { group: 'Navigate', label: 'Skills', icon: 'go', run: section('skills'), keys: 'toolbox languages' },

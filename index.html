@@ -296,6 +296,17 @@
   @keyframes blink { 50% { opacity: .25; } }
   .sim { font-size: 12px; color: var(--muted); padding: 3px 10px; border-radius: 980px; background: var(--bg-alt); }
   .ems-alert { font-size: 12px; font-weight: 600; color: var(--text); padding: 3px 10px; border-radius: 980px; background: color-mix(in srgb, var(--warn) 25%, transparent); }
+  .ems-views { display: inline-flex; background: var(--bg-alt); border-radius: 980px; padding: 3px; margin-bottom: 18px; }
+  .ems-views button { font: inherit; font-size: 14px; border: 0; background: none; color: var(--muted); padding: 7px 16px; border-radius: 980px; cursor: pointer; transition: background .25s, color .25s; }
+  .ems-views button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+  .ems-note { margin-top: 14px; font-size: 13px; color: var(--muted); }
+  .st { font-style: normal; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 980px; margin-left: 4px; }
+  .st::before { content: "● "; font-size: 8px; vertical-align: 1px; }
+  .st.ok { color: var(--g3); background: color-mix(in srgb, var(--g3) 14%, transparent); }
+  .st.idle { color: var(--muted); background: color-mix(in srgb, var(--muted) 16%, transparent); }
+  .st.bad { color: var(--warn); background: color-mix(in srgb, var(--warn) 18%, transparent); }
+  .ems-machines { display: grid; gap: 6px; }
+  .ems-machine { display: flex; justify-content: space-between; align-items: center; font-size: 14px; padding: 10px; border-radius: 12px; background: var(--card); }
   .ems-alert::before { content: "⚠ "; color: var(--warn); }
   .ems-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 22px; }
   .ems-kpis div { background: var(--bg-alt); border-radius: 16px; padding: 14px 16px; }
@@ -425,7 +436,7 @@
     <img class="portrait" src="fabian-schuerg.jpg" alt="Portrait of Fabian Schürg" width="720" height="720">
     <div class="eyebrow">Fabian Schürg</div>
     <h1>Digital products for <span class="grad">modern manufacturing.</span></h1>
-    <p class="lead">Manufacturing IT product leader at Bosch. Scaling industrial technology across plants worldwide.</p>
+    <p class="lead">Manufacturing IT product leader at Bosch. Building digital products for production and facility teams across plants worldwide.</p>
     <div class="ctas">
       <a class="pill" href="#contact">Get in touch</a>
       <a class="more" href="https://www.linkedin.com/in/fabianschuerg" target="_blank" rel="noopener">View LinkedIn</a>
@@ -461,7 +472,7 @@
     <h2>Between the shop floor, IT and the business case.</h2>
     <div class="narrow about" style="margin-top:56px">
       <p>I'm a <strong>manufacturing IT product leader</strong> with experience scaling industrial technology across manufacturing sites worldwide. I combine product strategy, technology transformation and commercial expertise with cross-functional leadership.</p>
-      <p>At Bosch, I built the global product and operating model for an <strong>Energy Management System</strong> and led its rollout across three continents. Before that, I led strategic sourcing for the <strong>Volkswagen Group's global connectivity ecosystem</strong> at Porsche, delivering one of the largest cost savings in Volkswagen Group sourcing.</p>
+      <p>At Bosch, I own a global <strong>manufacturing operations platform</strong> for energy management – used by production and facility management teams in plants across three continents. I built its product and operating model and led the rollout. Before that, I led strategic sourcing for the <strong>Volkswagen Group's global connectivity ecosystem</strong> at Porsche, delivering one of the largest cost savings in Volkswagen Group sourcing.</p>
       <p>What I enjoy most: translating business requirements into scalable technology solutions – and making them work across IT, operations and engineering.</p>
     </div>
   </div>
@@ -502,25 +513,25 @@
     <div class="kicker">Focus</div>
     <h2>Where I create value.</h2>
     <div class="grid stagger">
-      <div class="card" style="--c: var(--energy)">
-        <div class="tag">Energy</div>
-        <h3>Industrial energy management</h3>
-        <p>Global energy KPI reporting, plant-to-machine transparency and future capabilities such as forecasting and optimization.</p>
-      </div>
       <div class="card" style="--c: var(--data)">
-        <div class="tag">Data</div>
-        <h3>Manufacturing data &amp; analytics</h3>
-        <p>End-to-end data architecture – from ingestion and warehousing to calculation logic and dashboards people actually use.</p>
+        <div class="tag">Smart factory</div>
+        <h3>Manufacturing operations platforms</h3>
+        <p>Products that give production and facility teams one view of their plant – from site level down to lines, machines and building systems.</p>
       </div>
       <div class="card" style="--c: var(--quality)">
-        <div class="tag">Architecture</div>
-        <h3>Enterprise architecture &amp; integration</h3>
-        <p>Standardized integration and secure access patterns that connect shop-floor applications with SAP and enterprise IT.</p>
+        <div class="tag">Shop floor</div>
+        <h3>Shop-floor data &amp; integration</h3>
+        <p>End-to-end data architecture that connects machines, SAP and enterprise IT – from ingestion and calculation logic to dashboards people actually use.</p>
+      </div>
+      <div class="card" style="--c: var(--energy)">
+        <div class="tag">Efficiency</div>
+        <h3>Energy &amp; resource efficiency</h3>
+        <p>Making consumption visible per line, machine and unit produced – so efficiency becomes a production KPI, not just a utility bill.</p>
       </div>
       <div class="card" style="--c: var(--transf)">
         <div class="tag">Transformation</div>
         <h3>Global rollouts &amp; operating models</h3>
-        <p>Multi-site migrations, enablement models, partner management and operations that make products scale.</p>
+        <p>Multi-site migrations, enablement for two very different user groups, partner management and operations that make products scale.</p>
       </div>
     </div>
   </div>
@@ -529,36 +540,41 @@
 <section id="demo">
   <div class="wrap reveal">
     <div class="kicker">Live demo</div>
-    <h2>Energy, made visible.</h2>
-    <p class="intro">A simulated view of the kind of product I build. Drill down from plant to machine.</p>
+    <h2>The factory, made visible.</h2>
+    <p class="intro">A simulated view of the kind of product I build – for the two teams that run a plant: production and facility management.</p>
     <div class="ems" id="ems">
+      <div class="ems-views" role="group" aria-label="Audience">
+        <button type="button" data-view="production" aria-pressed="true">Production</button>
+        <button type="button" data-view="facilities" aria-pressed="false">Facility management</button>
+      </div>
       <div class="ems-top">
         <div class="ems-crumbs" role="navigation" aria-label="Hierarchy"></div>
-        <div class="ems-badges"><span class="ems-alert" hidden>Near peak limit</span><span class="live">Live</span><span class="sim">Simulated data</span></div>
+        <div class="ems-badges"><span class="ems-alert" hidden></span><span class="live">Live</span><span class="sim">Simulated data</span></div>
       </div>
       <div class="ems-kpis">
-        <div><span>Current load</span><b>–</b></div>
-        <div><span>Energy today</span><b>–</b></div>
-        <div><span>vs. forecast</span><b>–</b></div>
-        <div><span>Peak today</span><b>–</b></div>
+        <div><span></span><b>–</b></div>
+        <div><span></span><b>–</b></div>
+        <div><span></span><b>–</b></div>
+        <div><span></span><b>–</b></div>
       </div>
       <div class="ems-body">
         <div class="ems-chart">
           <div class="ems-chart-head">
-            <div class="legend"><span><i class="sw"></i>Actual</span><span><i class="sw dash"></i>Forecast</span><span><i class="sw limit"></i>Peak limit</span></div>
-            <label><input type="checkbox" id="ems-forecast" checked> Show forecast</label>
+            <div class="legend"><span><i class="sw"></i>Actual</span><span><i class="sw dash"></i><span class="ref">Plan</span></span><span class="lim" hidden><i class="sw limit"></i>Peak limit</span></div>
+            <label><input type="checkbox" id="ems-forecast" checked> <span class="ems-ref-label">Show plan</span></label>
           </div>
-          <canvas aria-label="Load curve with actual consumption and forecast"></canvas>
+          <canvas aria-label="Time series of actual values against plan or forecast"></canvas>
           <div class="ems-tip" hidden></div>
         </div>
         <div class="ems-side">
           <div class="ems-list-head"></div>
           <div class="ems-list"></div>
           <details class="ems-table"><summary>Show as table</summary>
-            <table><thead><tr><th>Time</th><th>Actual</th><th>Forecast</th></tr></thead><tbody></tbody></table>
+            <table><thead></thead><tbody></tbody></table>
           </details>
         </div>
       </div>
+      <p class="ems-note"></p>
     </div>
     <p class="demo-note">Illustrative only. No real plant or company data is shown.</p>
   </div>
@@ -575,9 +591,9 @@
           <h3>Product &amp; Service Manager – Smart Industry</h3>
           <div class="org">Robert Bosch GmbH · Stuttgart</div>
           <ul>
-            <li>Established the global product and operating model for a third-party Energy Management System – requirements, rollout, enablement and operations.</li>
+            <li>Established the global product and operating model for a third-party Energy Management System serving two audiences across Bosch manufacturing sites: production and facility management.</li>
             <li>Led the global migration of manufacturing sites across EMEA, APAC and the Americas and built a scalable enablement model for thousands of users.</li>
-            <li>Standardized global energy KPI reporting and integration architecture across EMEA, APAC and the Americas.</li>
+            <li>Standardized global KPI reporting and shop-floor integration architecture across EMEA, APAC and the Americas.</li>
             <li>Defined product strategy and roadmap, owned the product budget, coordinated cross-functional teams and partners, and shaped future capabilities including forecasting and optimization.</li>
           </ul>
         </div>
