@@ -82,7 +82,7 @@
   }
   nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 48px; }
   nav .name { color: var(--text); font-weight: 600; font-size: 15px; }
-  nav ul { display: flex; gap: 32px; list-style: none; }
+  nav ul { display: flex; gap: 24px; list-style: none; margin-right: 6px; }
   nav ul a { color: var(--text); opacity: .8; font-size: 12px; letter-spacing: -.01em; }
   nav ul a:hover { opacity: 1; text-decoration: none; }
 
@@ -244,7 +244,7 @@
   /* Personal mode */
   :root { --sport: #f56300; --dog: #28a745; --travel: #0071e3; }
   @media (prefers-color-scheme: dark) { :root { --sport: #ff9f0a; --dog: #30d158; --travel: #2997ff; } }
-  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-right { display: flex; align-items: center; gap: 18px; }
   .mode { display: inline-flex; background: color-mix(in srgb, var(--text) 8%, transparent); border-radius: 980px; padding: 3px; position: relative; }
   .mode button { position: relative; z-index: 1; border: 0; background: none; font: inherit; font-size: 12px; font-weight: 500; color: var(--muted); padding: 5px 12px; border-radius: 980px; cursor: pointer; transition: color .25s; letter-spacing: -.01em; }
   .mode button[aria-pressed="true"] { color: var(--text); }
@@ -262,6 +262,114 @@
   .places span { font-size: 13px; padding: 4px 10px; border-radius: 980px; background: color-mix(in srgb, var(--c) 12%, transparent); color: var(--text); }
   .personal-note { text-align: center; margin-top: 40px; font-size: 15px; color: var(--muted); }
   @media (max-width: 900px) { #personal .grid { grid-template-columns: 1fr; } }
+
+
+  /* Globe */
+  :root { --globe-land: #8e8e93; --warn: #c25e00; }
+  @media (prefers-color-scheme: dark) { :root { --globe-land: #6e6e73; --warn: #ff9f0a; } }
+  .globe-wrap { position: relative; max-width: 560px; margin: 40px auto 0; }
+  #globe { width: 100%; aspect-ratio: 1; display: block; cursor: grab; touch-action: pan-y; }
+  #globe.grabbing { cursor: grabbing; }
+  .regions { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+  .regions button { font: inherit; font-size: 14px; border: 0; cursor: pointer; padding: 7px 16px; border-radius: 980px; background: var(--bg); color: var(--text); transition: background .2s, color .2s; }
+  .regions button i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; }
+  .regions button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+  .globe-note { text-align: center; font-size: 13px; color: var(--muted); margin-top: 14px; }
+  .globe-wrap.no-data { display: none; }
+
+  /* EMS demo (always dark, like a product showcase) */
+  #demo {
+    --bg: #000; --bg-alt: #161617; --card: #1d1d1f; --text: #f5f5f7; --muted: #a1a1a6; --hair: #3a3a3c;
+    --g1: #2997ff; --g2: #2fd3c4; --g3: #4cd964; --warn: #ff9f0a; --link: #2997ff;
+    background: #000; color: var(--text);
+  }
+  #demo .intro { color: var(--muted); }
+  .ems { margin-top: 56px; background: var(--card); border-radius: 28px; padding: 28px; }
+  .ems-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .ems-crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; }
+  .ems-crumbs button { font: inherit; border: 0; background: none; color: var(--link); cursor: pointer; padding: 2px 0; }
+  .ems-crumbs button[aria-current] { color: var(--text); font-weight: 600; cursor: default; }
+  .ems-crumbs span { color: var(--muted); }
+  .ems-badges { display: flex; gap: 8px; align-items: center; }
+  .live { font-size: 12px; font-weight: 600; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+  .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--g3); animation: blink 1.6s infinite; }
+  @keyframes blink { 50% { opacity: .25; } }
+  .sim { font-size: 12px; color: var(--muted); padding: 3px 10px; border-radius: 980px; background: var(--bg-alt); }
+  .ems-alert { font-size: 12px; font-weight: 600; color: var(--text); padding: 3px 10px; border-radius: 980px; background: color-mix(in srgb, var(--warn) 25%, transparent); }
+  .ems-alert::before { content: "⚠ "; color: var(--warn); }
+  .ems-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 22px; }
+  .ems-kpis div { background: var(--bg-alt); border-radius: 16px; padding: 14px 16px; }
+  .ems-kpis span { display: block; font-size: 12px; color: var(--muted); }
+  .ems-kpis b { display: block; font-size: 22px; font-weight: 600; margin-top: 4px; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+  .ems-body { display: grid; grid-template-columns: 1fr 300px; gap: 20px; margin-top: 20px; }
+  .ems-chart { position: relative; background: var(--bg-alt); border-radius: 16px; padding: 14px 10px 6px; }
+  .ems-chart-head { display: flex; justify-content: space-between; align-items: center; padding: 0 6px 6px; font-size: 13px; color: var(--muted); gap: 12px; flex-wrap: wrap; }
+  .legend { display: flex; gap: 14px; align-items: center; }
+  .sw { display: inline-block; width: 18px; height: 0; border-top: 2px solid var(--g1); margin-right: 6px; vertical-align: middle; }
+  .sw.dash { border-top-style: dashed; opacity: .7; }
+  .sw.limit { border-top: 2px dashed var(--warn); }
+  .ems-chart label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+  .ems-chart canvas { width: 100%; height: 280px; display: block; }
+  .ems-tip { position: absolute; top: 0; pointer-events: none; background: var(--card); border: 1px solid var(--hair); border-radius: 12px; padding: 8px 12px; font-size: 13px; box-shadow: 0 8px 24px rgba(0,0,0,.4); white-space: nowrap; }
+  .ems-tip strong { display: block; margin-bottom: 4px; }
+  .ems-tip span { display: block; color: var(--muted); }
+  .ems-side { background: var(--bg-alt); border-radius: 16px; padding: 16px; }
+  .ems-list-head { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .ems-row { display: block; width: 100%; text-align: left; font: inherit; color: var(--text); background: none; border: 0; border-radius: 12px; padding: 10px; cursor: pointer; transition: background .2s; }
+  .ems-row:hover, .ems-row:focus-visible { background: var(--card); }
+  .ems-row-top { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; }
+  .ems-row-name small { display: block; font-size: 12px; color: var(--muted); }
+  .ems-row-val { font-variant-numeric: tabular-nums; font-weight: 500; }
+  .ems-bar { display: block; height: 6px; border-radius: 3px; background: var(--hair); margin-top: 8px; overflow: hidden; }
+  .ems-bar span { display: block; height: 100%; border-radius: 3px; background: var(--g2); transition: width .6s cubic-bezier(.2,.7,.2,1); }
+  .ems-leaf { font-size: 14px; color: var(--muted); padding: 10px; }
+  .ems-table { margin-top: 16px; font-size: 13px; color: var(--muted); }
+  .ems-table summary { cursor: pointer; }
+  .ems-table table { width: 100%; border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+  .ems-table td, .ems-table th { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--hair); }
+  .demo-note { text-align: center; margin-top: 18px; font-size: 13px; color: var(--muted); }
+
+  /* Command palette */
+  .cmdk-btn { display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: 12px; color: var(--muted); background: color-mix(in srgb, var(--text) 6%, transparent); border: 0; border-radius: 980px; padding: 5px 10px; cursor: pointer; }
+  .cmdk-btn svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+  .cmdk-btn kbd { font: inherit; font-size: 11px; }
+  .cmdk { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.28); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: flex; justify-content: center; align-items: flex-start; padding: 14vh 16px 0; opacity: 0; transition: opacity .18s; }
+  .cmdk[hidden] { display: none; }
+  .cmdk.show { opacity: 1; }
+  .cmdk-panel { width: 100%; max-width: 580px; background: var(--card); color: var(--text); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,.3); overflow: hidden; transform: scale(.97); transition: transform .18s; border: 1px solid var(--hair); }
+  .cmdk.show .cmdk-panel { transform: none; }
+  .cmdk-search { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--hair); }
+  .cmdk-search svg { width: 18px; height: 18px; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; flex: none; }
+  .cmdk-search input { flex: 1; font: inherit; font-size: 17px; border: 0; outline: 0; background: none; color: var(--text); }
+  .cmdk kbd { font: inherit; font-size: 11px; color: var(--muted); background: var(--bg-alt); border-radius: 6px; padding: 2px 6px; margin-left: 2px; }
+  .cmdk-list { max-height: 50vh; overflow-y: auto; padding: 6px; }
+  .cmdk-group { font-size: 12px; color: var(--muted); padding: 10px 10px 4px; }
+  .cmdk-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; font-size: 15px; }
+  .cmdk-item svg { width: 18px; height: 18px; fill: none; stroke: var(--muted); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .cmdk-item.on { background: var(--blue); color: #fff; }
+  .cmdk-item.on svg { stroke: #fff; }
+  .cmdk-empty { padding: 24px; text-align: center; color: var(--muted); }
+  .cmdk-foot { display: flex; gap: 16px; padding: 10px 16px; border-top: 1px solid var(--hair); font-size: 12px; color: var(--muted); }
+
+  /* Scroll motion */
+  .motion .reveal h2 .w { display: inline-block; opacity: 0; transform: translateY(.45em); filter: blur(6px); transition: opacity .7s ease, transform .8s cubic-bezier(.2,.7,.2,1), filter .7s ease; transition-delay: calc(var(--i) * 70ms); }
+  .motion .reveal.in h2 .w { opacity: 1; transform: none; filter: none; }
+  .motion .stagger > * { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--i) * 90ms + 200ms); }
+  .motion .reveal.in .stagger > * { opacity: 1; transform: none; }
+  .motion .portrait { transition: none; will-change: transform; }
+  .motion .hero .wrap { will-change: opacity, transform; }
+
+  @media (max-width: 900px) {
+    .ems-body { grid-template-columns: 1fr; }
+    .ems-kpis { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 760px) {
+    .cmdk-btn kbd { display: none; }
+    .nav-right .cmdk-btn { margin-right: 8px; }
+    .ems { padding: 18px; border-radius: 22px; }
+    .ems-chart canvas { height: 220px; }
+    .cmdk-foot { display: none; }
+  }
 
   /* Reveal */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
@@ -295,12 +403,14 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#focus">Focus</a></li>
+      <li><a href="#demo">Demo</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#skills">Skills</a></li>
       <li class="personal-only"><a href="#personal">Personal</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button type="button" class="cmdk-btn" id="cmdk-open" aria-label="Open command menu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><kbd>⌘K</kbd></button>
     <div class="mode" role="group" aria-label="View mode">
       <span class="knob" aria-hidden="true"></span>
       <button type="button" data-mode="professional" aria-pressed="true">Professional</button>
@@ -323,11 +433,20 @@
   </div>
 </header>
 
-<section class="alt">
+<section class="alt" id="impact">
   <div class="wrap reveal">
     <div class="kicker">Impact</div>
     <h2>Built for global scale.</h2>
-    <div class="stats">
+    <div class="globe-wrap">
+      <canvas id="globe" role="img" aria-label="Interactive globe showing rollout regions across EMEA, APAC and the Americas, connected to Stuttgart"></canvas>
+      <div class="regions" role="group" aria-label="Focus region">
+        <button type="button" data-region="EMEA" aria-pressed="false"><i style="background:var(--g1)"></i>EMEA</button>
+        <button type="button" data-region="APAC" aria-pressed="false"><i style="background:var(--g2)"></i>APAC</button>
+        <button type="button" data-region="Americas" aria-pressed="false"><i style="background:var(--g3)"></i>Americas</button>
+      </div>
+      <p class="globe-note">Drag to rotate. Markers are illustrative and shown at region level.</p>
+    </div>
+    <div class="stats stagger">
       <div class="stat word"><b>Global</b><span>Rollouts across EMEA, APAC and the Americas</span></div>
       <div class="stat word"><b>Plant to machine</b><span>Transparency from site level down to individual assets</span></div>
       <div class="stat word"><b>End to end</b><span>From strategy and roadmap to rollout and operations</span></div>
@@ -353,7 +472,7 @@
     <div class="kicker">Personal</div>
     <h2>Off the clock.</h2>
     <p class="intro">A few things that keep me balanced – and curious.</p>
-    <div class="grid">
+    <div class="grid stagger">
       <div class="card" style="--c: var(--sport)">
         <div class="tag">Sport</div>
         <h3>Hybrid training</h3>
@@ -382,7 +501,7 @@
   <div class="wrap reveal">
     <div class="kicker">Focus</div>
     <h2>Where I create value.</h2>
-    <div class="grid">
+    <div class="grid stagger">
       <div class="card" style="--c: var(--energy)">
         <div class="tag">Energy</div>
         <h3>Industrial energy management</h3>
@@ -407,11 +526,49 @@
   </div>
 </section>
 
+<section id="demo">
+  <div class="wrap reveal">
+    <div class="kicker">Live demo</div>
+    <h2>Energy, made visible.</h2>
+    <p class="intro">A simulated view of the kind of product I build. Drill down from plant to machine.</p>
+    <div class="ems" id="ems">
+      <div class="ems-top">
+        <div class="ems-crumbs" role="navigation" aria-label="Hierarchy"></div>
+        <div class="ems-badges"><span class="ems-alert" hidden>Near peak limit</span><span class="live">Live</span><span class="sim">Simulated data</span></div>
+      </div>
+      <div class="ems-kpis">
+        <div><span>Current load</span><b>–</b></div>
+        <div><span>Energy today</span><b>–</b></div>
+        <div><span>vs. forecast</span><b>–</b></div>
+        <div><span>Peak today</span><b>–</b></div>
+      </div>
+      <div class="ems-body">
+        <div class="ems-chart">
+          <div class="ems-chart-head">
+            <div class="legend"><span><i class="sw"></i>Actual</span><span><i class="sw dash"></i>Forecast</span><span><i class="sw limit"></i>Peak limit</span></div>
+            <label><input type="checkbox" id="ems-forecast" checked> Show forecast</label>
+          </div>
+          <canvas aria-label="Load curve with actual consumption and forecast"></canvas>
+          <div class="ems-tip" hidden></div>
+        </div>
+        <div class="ems-side">
+          <div class="ems-list-head"></div>
+          <div class="ems-list"></div>
+          <details class="ems-table"><summary>Show as table</summary>
+            <table><thead><tr><th>Time</th><th>Actual</th><th>Forecast</th></tr></thead><tbody></tbody></table>
+          </details>
+        </div>
+      </div>
+    </div>
+    <p class="demo-note">Illustrative only. No real plant or company data is shown.</p>
+  </div>
+</section>
+
 <section id="experience">
   <div class="wrap reveal">
     <div class="kicker">Experience</div>
     <h2>Career so far.</h2>
-    <div class="timeline">
+    <div class="timeline stagger">
       <div class="job">
         <div class="when">Nov 2025 – Present</div>
         <div>
@@ -490,7 +647,7 @@
   <div class="wrap reveal">
     <div class="kicker">Education</div>
     <h2>Engineering meets industry.</h2>
-    <div class="grid">
+    <div class="grid stagger">
       <div class="card" style="--c: var(--g1)">
         <div class="tag">2018 – 2020</div>
         <h3>M.Eng. Smart Factory – Industry 4.0</h3>
@@ -509,7 +666,7 @@
   <div class="wrap reveal">
     <div class="kicker">Skills</div>
     <h2>Toolbox.</h2>
-    <div class="skills">
+    <div class="skills stagger">
       <div class="card">
         <h3>Core expertise</h3>
         <div class="chips"><span>Manufacturing IT</span><span>Smart Factory</span><span>Product Strategy</span><span>Enterprise Architecture</span><span>Data Integration</span><span>Cross-Functional Leadership</span></div>
@@ -562,6 +719,7 @@
   </div>
 </footer>
 
+<script src="assets/motion.js"></script>
 <script>
   (function () {
     var els = document.querySelectorAll('.reveal');
@@ -699,6 +857,9 @@
     });
   })();
 </script>
+<script src="assets/globe.js" defer></script>
+<script src="assets/energy.js" defer></script>
+<script src="assets/palette.js" defer></script>
 <script data-goatcounter="https://f4bey.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
