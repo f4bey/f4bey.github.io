@@ -87,7 +87,7 @@
   nav ul a:hover { opacity: 1; text-decoration: none; }
 
   /* Hero */
-  .hero { text-align: center; padding: 96px 0 104px; position: relative; overflow: hidden; }
+  .hero { text-align: center; padding: 40px 0 72px; position: relative; overflow: hidden; }
   .hero::before {
     content: ""; position: absolute; inset: -20% -10% auto; height: 120%; z-index: -1;
     background:
@@ -101,7 +101,7 @@
   }
   .portrait {
     border: 4px solid var(--bg); outline: 2px solid color-mix(in srgb, var(--g2) 45%, transparent);
-    width: 168px; height: 168px; border-radius: 50%;
+    width: 128px; height: 128px; border-radius: 50%;
     object-fit: cover; display: block; margin: 0 auto 32px;
     box-shadow: 0 10px 40px rgba(0,0,0,.08);
   }
@@ -368,7 +368,7 @@
   .motion .stagger > * { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--i) * 90ms + 200ms); }
   .motion .reveal.in .stagger > * { opacity: 1; transform: none; }
   .motion .portrait { transition: none; will-change: transform; }
-  .motion .hero .wrap { will-change: opacity, transform; }
+  .motion .hero h1, .motion .hero .lead, .motion .hero .ctas, .motion .hero .eyebrow { will-change: opacity, transform; }
 
   @media (max-width: 900px) {
     .ems-body { grid-template-columns: 1fr; }
@@ -380,6 +380,193 @@
     .ems { padding: 18px; border-radius: 22px; }
     .ems-chart canvas { height: 220px; }
     .cmdk-foot { display: none; }
+  }
+
+
+  /* Isometric plant (hero) */
+  .plant { position: relative; max-width: 1080px; margin: 48px auto 0; user-select: none; -webkit-user-select: none; }
+  .plant svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .plant-hint { text-align: center; font-size: 13px; color: var(--muted); margin-top: 6px; }
+  .plant .m-ground-t{fill:#eef0f3}
+  .plant .m-ground-l{fill:#dfe2e7}
+  .plant .m-ground-r{fill:#d3d7de}
+  .plant .m-floor-t{fill:#f8f9fb}
+  .plant .m-floor-l{fill:#e3e6eb}
+  .plant .m-floor-r{fill:#d8dce2}
+  .plant .m-wall-t{fill:#e9ecf0}
+  .plant .m-wall-l{fill:#d9dde3}
+  .plant .m-wall-r{fill:#c9ced6}
+  .plant .m-conv-t{fill:#c4c9d1}
+  .plant .m-conv-l{fill:#aab1bb}
+  .plant .m-conv-r{fill:#9aa2ad}
+  .plant .m-parcel-t{fill:#e8c79a}
+  .plant .m-parcel-l{fill:#d4ac74}
+  .plant .m-parcel-r{fill:#c49a60}
+  .plant .m-parcel2-t{fill:#bcd7f5}
+  .plant .m-parcel2-l{fill:#97bde8}
+  .plant .m-parcel2-r{fill:#82acdc}
+  .plant .m-machine-t{fill:#ffffff}
+  .plant .m-machine-l{fill:#e6e9ee}
+  .plant .m-machine-r{fill:#d6dbe2}
+  .plant .m-robot-base-t{fill:#ff9f43}
+  .plant .m-robot-base-l{fill:#ef8a2a}
+  .plant .m-robot-base-r{fill:#dc7a1d}
+  .plant .m-agv-t{fill:#0071e3}
+  .plant .m-agv-l{fill:#005bb8}
+  .plant .m-agv-r{fill:#004f9f}
+  .plant .m-rack-t{fill:#8c95a3}
+  .plant .m-rack-l{fill:#717b8a}
+  .plant .m-rack-r{fill:#636c7a}
+  .plant .m-dock-t{fill:#c9ced6}
+  .plant .m-dock-l{fill:#b4bac4}
+  .plant .m-dock-r{fill:#a5acb7}
+  .plant .m-forklift-t{fill:#ffcc00}
+  .plant .m-forklift-l{fill:#e6b700}
+  .plant .m-forklift-r{fill:#cca300}
+  .plant .m-mast-t{fill:#5f6672}
+  .plant .m-mast-l{fill:#4c525c}
+  .plant .m-mast-r{fill:#40454e}
+  .plant .m-trailer-t{fill:#ffffff}
+  .plant .m-trailer-l{fill:#e9ecf0}
+  .plant .m-trailer-r{fill:#dadee5}
+  .plant .m-cab-t{fill:#0071e3}
+  .plant .m-cab-l{fill:#005bb8}
+  .plant .m-cab-r{fill:#004f9f}
+  .plant .m-wheel-t{fill:#3a3d43}
+  .plant .m-wheel-l{fill:#2c2f34}
+  .plant .m-wheel-r{fill:#25272b}
+  .plant .m-office-t{fill:#f3f5f8}
+  .plant .m-office-l{fill:#e2e6ec}
+  .plant .m-office-r{fill:#d3d8e0}
+  .plant .m-hvac-t{fill:#d8dde4}
+  .plant .m-hvac-l{fill:#c2c8d1}
+  .plant .m-hvac-r{fill:#b3bac4}
+  .plant .m-utility-t{fill:#a7e3d9}
+  .plant .m-utility-l{fill:#7fd0c3}
+  .plant .m-utility-r{fill:#68c1b3}
+  .plant .m-battery-t{fill:#e9f8ee}
+  .plant .m-battery-l{fill:#c9edd5}
+  .plant .m-battery-r{fill:#b4e3c4}
+  .plant .road { fill: #d5d9df; } .plant .road-mark { fill: #fff; } .plant .apron { fill: #e4e7ec; }
+  .plant .window { fill: #cfe3f7; } .plant .mark { fill: #ffcc00; opacity: .8; } .plant .conv-slat { fill: #8b929d; }
+  .plant .screen { fill: #1d1d1f; } .plant .led.ok { fill: #34c759; } .plant .led.busy { fill: #ff9f0a; }
+  .plant .arm-seg { stroke: #ff9f43; stroke-width: 5; stroke-linecap: round; } .plant .arm-seg.thin { stroke-width: 3.5; }
+  .plant .arm-joint { fill: #3a3d43; } .plant .arm-tip { fill: #0071e3; }
+  .plant .fan-ring { fill: #9aa2ad; } .plant .fan-blades path { fill: #f5f5f7; }
+  .plant .pv { fill: #1f3a66; stroke: #9db4d6; stroke-width: .6; } .plant .pv-line { fill: #5c7db0; } .plant .pv-shine { fill: url(#pvShine); opacity: 0; pointer-events: none; }
+  .plant .cell { fill: #c9d6cd; } .plant .cell.on { fill: #34c759; }
+  .plant .flow { fill: none; stroke-width: 2.4; stroke-dasharray: 3 9; stroke-linecap: round; }
+  .plant .flow.pv { stroke: #34c759; } .plant .flow.out { stroke: #00a3a3; }
+  .plant .tree { fill: #b8d8c0; } .plant .tree-shadow { fill: rgba(0,0,0,.06); }
+  .plant .zone { transition: opacity .35s ease; cursor: pointer; }
+  .plant.focus .zone:not(.on) { opacity: .28; }
+  .plant .hot { cursor: pointer; outline: none; }
+  .plant.small .hot-in { transform: scale(1.9); }
+  .plant .hot-dot { fill: var(--text); stroke: var(--bg); stroke-width: 2.5; transition: fill .2s; }
+  .plant .hot-n { fill: var(--bg); font: 600 11px Inter, -apple-system, sans-serif; pointer-events: none; }
+  .plant .hot-pulse { fill: var(--g2); opacity: .0; transform-box: fill-box; transform-origin: center; animation: hotpulse 2.4s ease-out infinite; }
+  .plant .hot.on .hot-dot, .plant .hot:focus-visible .hot-dot { fill: var(--blue); }
+  .plant .hot.on .hot-n { fill: #fff; }
+  @keyframes hotpulse { 0% { opacity: .45; transform: scale(.6); } 100% { opacity: 0; transform: scale(1.7); } }
+  .plant-card { position: absolute; z-index: 5; width: 290px; background: var(--card); color: var(--text); border: 1px solid var(--hair); border-radius: 18px; padding: 16px 18px 14px; box-shadow: 0 20px 50px rgba(0,0,0,.14); text-align: left; animation: pcIn .22s ease; }
+  @keyframes pcIn { from { opacity: 0; transform: translateY(6px); } }
+  .plant-card .pc-n { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 11px; font-weight: 600; margin-right: 8px; vertical-align: 1px; }
+  .plant-card strong { font-size: 16px; font-weight: 600; }
+  .plant-card p { font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
+  .plant-card a { display: inline-block; margin-top: 10px; font-size: 14px; }
+  @media (prefers-color-scheme: dark) {
+    .plant .m-ground-t{fill:#1f1f22}
+    .plant .m-ground-l{fill:#161618}
+    .plant .m-ground-r{fill:#121214}
+    .plant .m-floor-t{fill:#2a2a2e}
+    .plant .m-floor-l{fill:#1e1e21}
+    .plant .m-floor-r{fill:#19191c}
+    .plant .m-wall-t{fill:#3a3a3e}
+    .plant .m-wall-l{fill:#2c2c30}
+    .plant .m-wall-r{fill:#252528}
+    .plant .m-conv-t{fill:#55555b}
+    .plant .m-conv-l{fill:#45454a}
+    .plant .m-conv-r{fill:#3b3b40}
+    .plant .m-parcel-t{fill:#c9a272}
+    .plant .m-parcel-l{fill:#ad8556}
+    .plant .m-parcel-r{fill:#977348}
+    .plant .m-parcel2-t{fill:#4f7fb3}
+    .plant .m-parcel2-l{fill:#3f6a99}
+    .plant .m-parcel2-r{fill:#355b85}
+    .plant .m-machine-t{fill:#4a4a50}
+    .plant .m-machine-l{fill:#3a3a40}
+    .plant .m-machine-r{fill:#323237}
+    .plant .m-robot-base-t{fill:#ff9f43}
+    .plant .m-robot-base-l{fill:#d97b25}
+    .plant .m-robot-base-r{fill:#c46c1c}
+    .plant .m-agv-t{fill:#2997ff}
+    .plant .m-agv-l{fill:#1f7ad1}
+    .plant .m-agv-r{fill:#1a68b3}
+    .plant .m-rack-t{fill:#6e6e76}
+    .plant .m-rack-l{fill:#5a5a61}
+    .plant .m-rack-r{fill:#4d4d53}
+    .plant .m-dock-t{fill:#4a4a50}
+    .plant .m-dock-l{fill:#3c3c42}
+    .plant .m-dock-r{fill:#333338}
+    .plant .m-forklift-t{fill:#ffd60a}
+    .plant .m-forklift-l{fill:#d4b200}
+    .plant .m-forklift-r{fill:#b89a00}
+    .plant .m-mast-t{fill:#8e8e93}
+    .plant .m-mast-l{fill:#6e6e73}
+    .plant .m-mast-r{fill:#5e5e63}
+    .plant .m-trailer-t{fill:#d1d1d6}
+    .plant .m-trailer-l{fill:#a8a8ae}
+    .plant .m-trailer-r{fill:#98989e}
+    .plant .m-cab-t{fill:#2997ff}
+    .plant .m-cab-l{fill:#1f7ad1}
+    .plant .m-cab-r{fill:#1a68b3}
+    .plant .m-wheel-t{fill:#111}
+    .plant .m-wheel-l{fill:#0a0a0a}
+    .plant .m-wheel-r{fill:#050505}
+    .plant .m-office-t{fill:#3a3a3e}
+    .plant .m-office-l{fill:#2e2e32}
+    .plant .m-office-r{fill:#28282b}
+    .plant .m-hvac-t{fill:#5a5a60}
+    .plant .m-hvac-l{fill:#48484e}
+    .plant .m-hvac-r{fill:#3e3e43}
+    .plant .m-utility-t{fill:#2fd3c4}
+    .plant .m-utility-l{fill:#25a89c}
+    .plant .m-utility-r{fill:#1f8f85}
+    .plant .m-battery-t{fill:#2c3a30}
+    .plant .m-battery-l{fill:#24302a}
+    .plant .m-battery-r{fill:#1f2924}
+    .plant .road { fill: #2c2c2e; } .plant .road-mark { fill: #636366; } .plant .apron { fill: #232326; }
+    .plant .window { fill: #3d5a80; } .plant .conv-slat { fill: #2c2c30; } .plant .screen { fill: #000; }
+    .plant .fan-ring { fill: #3a3a3e; } .plant .fan-blades path { fill: #a1a1a6; }
+    .plant .cell { fill: #3a4a3f; } .plant .cell.on { fill: #30d158; }
+    .plant .tree { fill: #2f4a37; } .plant .tree-shadow { fill: rgba(0,0,0,.35); }
+    .plant .arm-joint { fill: #d1d1d6; } .plant .arm-tip { fill: #2997ff; }
+  }
+  @media (max-width: 760px) {
+    .plant { margin-top: 32px; margin-left: -12px; margin-right: -12px; }
+    .plant-card { width: min(290px, calc(100% - 16px)); }
+  }
+
+
+  /* Hero two-column with plant */
+  .hero-grid { max-width: 1240px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px; align-items: center; text-align: left; }
+  .hero-text .who { display: flex; align-items: center; gap: 14px; }
+  .hero-text .portrait { width: 64px; height: 64px; margin: 0; border-width: 3px; }
+  .hero-text .eyebrow { font-size: 19px; }
+  .hero-text h1 { font-size: clamp(40px, 4.4vw, 64px); margin: 22px 0 0; max-width: 12ch; }
+  .hero-text .lead { margin: 20px 0 0; max-width: 30ch; font-size: clamp(18px, 1.6vw, 21px); }
+  .hero-text .ctas { justify-content: flex-start; }
+  .hero-visual .plant { margin: 0; max-width: none; }
+  .hero-visual .plant-hint { margin-top: 0; }
+  @media (max-width: 980px) {
+    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 12px; }
+    .hero-text .who { justify-content: center; flex-direction: column; gap: 10px; }
+    .hero-text .portrait { width: 96px; height: 96px; }
+    .hero-text h1, .hero-text .lead { margin-left: auto; margin-right: auto; }
+    .hero-text .ctas { justify-content: center; }
+  }
+  @media (max-width: 760px) {
+    .plant-card { position: fixed !important; left: 12px !important; right: 12px; top: auto !important; bottom: 12px; width: auto; z-index: 60; box-shadow: 0 20px 60px rgba(0,0,0,.25); }
   }
 
   /* Reveal */
@@ -432,14 +619,19 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap">
-    <img class="portrait" src="fabian-schuerg.jpg" alt="Portrait of Fabian Schürg" width="720" height="720">
-    <div class="eyebrow">Fabian Schürg</div>
-    <h1>Digital products for <span class="grad">modern manufacturing.</span></h1>
-    <p class="lead">Manufacturing IT product leader at Bosch. Building digital products for production and facility teams across plants worldwide.</p>
-    <div class="ctas">
-      <a class="pill" href="#contact">Get in touch</a>
-      <a class="more" href="https://www.linkedin.com/in/fabianschuerg" target="_blank" rel="noopener">View LinkedIn</a>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div class="who"><img class="portrait" src="fabian-schuerg.jpg" alt="Portrait of Fabian Schürg" width="720" height="720"><div class="eyebrow">Fabian Schürg</div></div>
+      <h1>Digital products for <span class="grad">modern manufacturing.</span></h1>
+      <p class="lead">Manufacturing IT product leader at Bosch. Building digital products for production and facility teams across plants worldwide.</p>
+      <div class="ctas">
+        <a class="pill" href="#contact">Get in touch</a>
+        <a class="more" href="https://www.linkedin.com/in/fabianschuerg" target="_blank" rel="noopener">View LinkedIn</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="plant" id="plant"></div>
+      <p class="plant-hint">Hover or tap the plant to explore what I work on.</p>
     </div>
   </div>
 </header>
@@ -873,6 +1065,7 @@
     });
   })();
 </script>
+<script src="assets/factory.js" defer></script>
 <script src="assets/globe.js" defer></script>
 <script src="assets/energy.js" defer></script>
 <script src="assets/palette.js" defer></script>

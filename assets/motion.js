@@ -16,14 +16,15 @@
   });
 
   // Hero: photo shrinks and content fades as you scroll past
-  var hero = document.querySelector('.hero'), img = hero && hero.querySelector('.portrait'), inner = hero && hero.querySelector('.wrap');
+  var hero = document.querySelector('.hero'), img = hero && hero.querySelector('.portrait');
+  var texts = hero ? hero.querySelectorAll('.eyebrow, h1, .lead, .ctas') : [];
   var ticking = false;
   function update() {
     ticking = false;
     if (!hero) return;
-    var h = hero.offsetHeight, y = Math.min(Math.max(scrollY, 0), h), k = y / h;
-    if (img) img.style.transform = 'translateY(' + (k * 40) + 'px) scale(' + (1 - k * 0.25) + ')';
-    if (inner) { inner.style.opacity = String(1 - k * 0.9); inner.style.transform = 'translateY(' + (k * 60) + 'px)'; }
+    var h = Math.max(1, innerHeight * 0.8), y = Math.min(Math.max(scrollY, 0), h), k = y / h;
+    if (img) img.style.transform = 'translateY(' + (k * 30) + 'px) scale(' + (1 - k * 0.2) + ')';
+    for (var i = 0; i < texts.length; i++) { texts[i].style.opacity = String(1 - k * 0.7); texts[i].style.transform = 'translateY(' + (k * 30) + 'px)'; }
   }
   addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
   update();
